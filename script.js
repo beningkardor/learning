@@ -1,11 +1,13 @@
 const form = document.querySelector("#record-form");
 const typeInput = document.querySelector("#type");
+const categoryInput = document.querySelector("#category");
 const descriptionInput = document.querySelector("#description");
 const amountInput = document.querySelector("#amount");
 const balanceText = document.querySelector("#balance");
 const recordList = document.querySelector("#record-list");
 const clearButton = document.querySelector("#clear-button");
 const quickExpenseButtons = document.querySelectorAll(".quick-expense");
+const filterCategory = document.querySelector("#filter-category");
 
 let records = JSON.parse(localStorage.getItem("moneyRecords")) || [];
 
@@ -20,20 +22,31 @@ function formatMoney(amount) {
 function updatePage() {
   recordList.innerHTML = "";
 
-  if (records.length === 0) {
+  const selectedCategory = filterCategory.value;
+  const visibleRecords = records.filter((record) => {
+    return selectedCategory === "all" || record.category === selectedCategory;
+  });
+
+  if (visibleRecords.length === 0) {
     recordList.innerHTML = '<li class="empty">还没有记录。</li>';
   }
 
   let balance = 0;
 
   records.forEach((record) => {
-    const item = document.createElement("li");
     const amount = record.type === "income" ? record.amount : -record.amount;
-
     balance += amount;
+  });
+
+  visibleRecords.forEach((record) => {
+    const item = document.createElement("li");
+
     item.className = `record-item ${record.type}`;
     item.innerHTML = `
-      <span>${record.description}</span>
+      <span class="record-info">
+        <span>${record.description}</span>
+        <span class="category-tag">${record.category || "未分类"}</span>
+      </span>
       <strong>${record.type === "income" ? "+" : "-"}${formatMoney(record.amount)}</strong>
     `;
 
@@ -48,6 +61,7 @@ form.addEventListener("submit", (event) => {
 
   const newRecord = {
     type: typeInput.value,
+    category: categoryInput.value,
     description: descriptionInput.value.trim(),
     amount: Number(amountInput.value),
   };
@@ -70,14 +84,27 @@ clearButton.addEventListener("click", () => {
 
 quickExpenseButtons.forEach((button) => {
   button.addEventListener("click", () => {
+    const category = button.dataset.category;
+
     typeInput.value = "expense";
-    descriptionInput.value = button.dataset.description;
+    categoryInput.value = category;
+    descriptionInput.value = category;
     amountInput.focus();
   });
 });
 
+filterCategory.addEventListener("change", updatePage);
+
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("service-worker.js");
 }
+
+Array.from(categoryInput.options).forEach((option) => {
+  const filterOption = document.createElement("option");
+
+  filterOption.value = option.value;
+  filterOption.textContent = option.textContent;
+  filterCategory.appendChild(filterOption);
+});
 
 updatePage();
