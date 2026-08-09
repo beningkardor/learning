@@ -54,7 +54,7 @@ p {
 
 .quick-buttons {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 8px;
 }
 
@@ -127,6 +127,20 @@ button:hover {
   border-top: 1px solid #edf0f3;
 }
 
+.record-info {
+  display: grid;
+  gap: 4px;
+}
+
+.category-tag {
+  width: fit-content;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #eef2f7;
+  color: #555;
+  font-size: 12px;
+}
+
 .income {
   color: #0f8a3b;
 }
@@ -142,6 +156,10 @@ button:hover {
 @media (max-width: 420px) {
   .app {
     margin: 16px auto;
+  }
+
+  .quick-buttons {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   #balance {
