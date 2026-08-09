@@ -22,10 +22,16 @@
       <div class="quick-box">
         <p>快捷消费</p>
         <div class="quick-buttons">
-          <button class="quick-expense" type="button" data-description="餐饮">餐饮</button>
-          <button class="quick-expense" type="button" data-description="交通">交通</button>
-          <button class="quick-expense" type="button" data-description="购物">购物</button>
-          <button class="quick-expense" type="button" data-description="日用品">日用品</button>
+          <button class="quick-expense" type="button" data-category="餐饮">餐饮</button>
+          <button class="quick-expense" type="button" data-category="交通">交通</button>
+          <button class="quick-expense" type="button" data-category="购物">购物</button>
+          <button class="quick-expense" type="button" data-category="日用品">日用品</button>
+          <button class="quick-expense" type="button" data-category="房租水电">房租水电</button>
+          <button class="quick-expense" type="button" data-category="医疗">医疗</button>
+          <button class="quick-expense" type="button" data-category="学习">学习</button>
+          <button class="quick-expense" type="button" data-category="娱乐">娱乐</button>
+          <button class="quick-expense" type="button" data-category="人情">人情</button>
+          <button class="quick-expense" type="button" data-category="其他">其他</button>
         </div>
       </div>
       <form id="record-form">
@@ -33,6 +39,23 @@
         <select id="type" required>
           <option value="income">收入</option>
           <option value="expense">支出</option>
+        </select>
+
+        <label for="category">分类</label>
+        <select id="category" required>
+          <option value="工资">工资</option>
+          <option value="兼职">兼职</option>
+          <option value="红包">红包</option>
+          <option value="餐饮">餐饮</option>
+          <option value="交通">交通</option>
+          <option value="购物">购物</option>
+          <option value="日用品">日用品</option>
+          <option value="房租水电">房租水电</option>
+          <option value="医疗">医疗</option>
+          <option value="学习">学习</option>
+          <option value="娱乐">娱乐</option>
+          <option value="人情">人情</option>
+          <option value="其他">其他</option>
         </select>
 
         <label for="description">说明</label>
@@ -50,6 +73,10 @@
         <h2>历史记录</h2>
         <button id="clear-button" type="button">清空</button>
       </div>
+      <label for="filter-category">按分类查看</label>
+      <select id="filter-category">
+        <option value="all">全部分类</option>
+      </select>
       <ul id="record-list"></ul>
     </section>
   </main>
