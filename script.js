@@ -5,6 +5,7 @@ const amountInput = document.querySelector("#amount");
 const balanceText = document.querySelector("#balance");
 const recordList = document.querySelector("#record-list");
 const clearButton = document.querySelector("#clear-button");
+const quickExpenseButtons = document.querySelectorAll(".quick-expense");
 
 let records = JSON.parse(localStorage.getItem("moneyRecords")) || [];
 
@@ -66,5 +67,17 @@ clearButton.addEventListener("click", () => {
   saveRecords();
   updatePage();
 });
+
+quickExpenseButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    typeInput.value = "expense";
+    descriptionInput.value = button.dataset.description;
+    amountInput.focus();
+  });
+});
+
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("service-worker.js");
+}
 
 updatePage();
