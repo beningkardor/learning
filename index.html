@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>个人记账网页 v1.0</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <h1>个人记账网页 v1.0</h1>
+
+    <section class="balance-box">
+      <p>当前余额</p>
+      <strong id="balance">0.00 元</strong>
+    </section>
+
+    <section class="form-box">
+      <h2>添加记录</h2>
+      <form id="record-form">
+        <label for="type">类型</label>
+        <select id="type" required>
+          <option value="income">收入</option>
+          <option value="expense">支出</option>
+        </select>
+
+        <label for="description">说明</label>
+        <input id="description" type="text" placeholder="例如：工资、午餐" required>
+
+        <label for="amount">金额</label>
+        <input id="amount" type="number" min="0.01" step="0.01" placeholder="0.00" required>
+
+        <button type="submit">添加</button>
+      </form>
+    </section>
+
+    <section class="history-box">
+      <div class="history-title">
+        <h2>历史记录</h2>
+        <button id="clear-button" type="button">清空</button>
+      </div>
+      <ul id="record-list"></ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
