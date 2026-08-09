@@ -40,6 +40,34 @@ p {
   color: #1565c0;
 }
 
+.quick-box {
+  padding: 12px;
+  background: #f8fafc;
+  border: 1px solid #edf0f3;
+  border-radius: 8px;
+}
+
+.quick-box p {
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.quick-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.quick-expense {
+  margin-top: 0;
+  background: #eef2f7;
+  color: #222;
+}
+
+.quick-expense:hover {
+  background: #dbe4ee;
+}
+
 label {
   display: block;
   margin: 12px 0 6px;
@@ -109,4 +137,14 @@ button:hover {
 
 .empty {
   color: #777;
+}
+
+@media (max-width: 420px) {
+  .app {
+    margin: 16px auto;
+  }
+
+  #balance {
+    font-size: 28px;
+  }
 }
