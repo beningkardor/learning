@@ -3,12 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>个人记账网页 v1.0</title>
+  <meta name="theme-color" content="#1565c0">
+  <title>个人记账网页 v1.1</title>
+  <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <main class="app">
-    <h1>个人记账网页 v1.0</h1>
+    <h1>个人记账网页 v1.1</h1>
 
     <section class="balance-box">
       <p>当前余额</p>
@@ -17,6 +19,15 @@
 
     <section class="form-box">
       <h2>添加记录</h2>
+      <div class="quick-box">
+        <p>快捷消费</p>
+        <div class="quick-buttons">
+          <button class="quick-expense" type="button" data-description="餐饮">餐饮</button>
+          <button class="quick-expense" type="button" data-description="交通">交通</button>
+          <button class="quick-expense" type="button" data-description="购物">购物</button>
+          <button class="quick-expense" type="button" data-description="日用品">日用品</button>
+        </div>
+      </div>
       <form id="record-form">
         <label for="type">类型</label>
         <select id="type" required>
