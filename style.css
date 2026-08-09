@@ -20,7 +20,8 @@ p {
   margin-top: 0;
 }
 
-.balance-box,
+.summary-box,
+.category-box,
 .form-box,
 .history-box {
   background: #fff;
@@ -30,14 +31,28 @@ p {
   margin-bottom: 16px;
 }
 
-.balance-box p {
+.summary-box p {
   color: #666;
-  margin-bottom: 8px;
+  margin: 16px 0 8px;
 }
 
-#balance {
+#expense-total {
   font-size: 32px;
   color: #1565c0;
+}
+
+#category-summary {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.category-summary-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  border-top: 1px solid #edf0f3;
 }
 
 .quick-box {
@@ -141,6 +156,11 @@ button:hover {
   font-size: 12px;
 }
 
+.record-date {
+  color: #777;
+  font-size: 12px;
+}
+
 .income {
   color: #0f8a3b;
 }
@@ -162,7 +182,7 @@ button:hover {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  #balance {
+  #expense-total {
     font-size: 28px;
   }
 }
