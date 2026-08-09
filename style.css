@@ -1,0 +1,112 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, "Microsoft YaHei", sans-serif;
+  background: #f4f6f8;
+  color: #222;
+}
+
+.app {
+  width: min(680px, 92%);
+  margin: 32px auto;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+.balance-box,
+.form-box,
+.history-box {
+  background: #fff;
+  border: 1px solid #dfe3e8;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.balance-box p {
+  color: #666;
+  margin-bottom: 8px;
+}
+
+#balance {
+  font-size: 32px;
+  color: #1565c0;
+}
+
+label {
+  display: block;
+  margin: 12px 0 6px;
+  font-weight: bold;
+}
+
+input,
+select,
+button {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #c9d1d9;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+button {
+  margin-top: 16px;
+  border: 0;
+  background: #1565c0;
+  color: #fff;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0d47a1;
+}
+
+.history-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.history-title h2 {
+  margin-bottom: 0;
+}
+
+#clear-button {
+  width: auto;
+  margin-top: 0;
+  background: #6b7280;
+}
+
+#record-list {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+}
+
+.record-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 0;
+  border-top: 1px solid #edf0f3;
+}
+
+.income {
+  color: #0f8a3b;
+}
+
+.expense {
+  color: #c62828;
+}
+
+.empty {
+  color: #777;
+}
