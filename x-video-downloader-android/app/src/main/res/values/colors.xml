@@ -1,0 +1,12 @@
+<resources>
+    <color name="ink">#18352A</color>
+    <color name="muted">#6B8176</color>
+    <color name="accent">#75C98B</color>
+    <color name="accent_dark">#2D8D53</color>
+    <color name="accent_light">#E8F6EC</color>
+    <color name="surface">#F4FBF6</color>
+    <color name="card">#FFFFFF</color>
+    <color name="track">#DDEFE3</color>
+    <color name="progress_accent">#F39A3F</color>
+    <color name="progress_track">#FCE5C8</color>
+</resources>
