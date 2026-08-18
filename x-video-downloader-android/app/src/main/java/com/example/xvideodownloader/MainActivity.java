@@ -75,6 +75,9 @@ public class MainActivity extends Activity {
     private void parseLink() {
         String input = linkInput.getText().toString().trim();
         if (input.isEmpty()) { show("请先粘贴视频链接。", false); return; }
+        // 强制清空输入框：点击解析后立即移除已提交链接，避免后台下载回来仍残留旧链接。
+        linkInput.setText("");
+        linkInput.clearFocus();
         setBusy(true);
         show("正在查找视频资源…", false);
         executor.execute(() -> {
