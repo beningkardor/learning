@@ -24,10 +24,10 @@ public final class FlowProgressView extends View {
     @Override protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         float radius = getHeight() / 2f;
-        track.setColor(getResources().getColor(R.color.track));
+        track.setColor(getResources().getColor(R.color.progress_track));
         canvas.drawRoundRect(new RectF(0, 0, getWidth(), getHeight()), radius, radius, track);
         if (progress <= 0f) return;
-        fill.setColor(getResources().getColor(R.color.accent));
+        fill.setColor(getResources().getColor(R.color.progress_accent));
         float right = Math.max(getHeight(), getWidth() * progress);
         canvas.drawRoundRect(new RectF(0, 0, right, getHeight()), radius, radius, fill);
         if (active && right > getHeight()) {
